@@ -1,0 +1,7 @@
+
+
+# Das compilierte packerfile wird vorerst ignoriert
+# Wenn das ein Fehler ist werd ich diese Zeilen entfernen
+# Ich weis es momentan nicht besser
+plugin/packer_compiled.lua
+
