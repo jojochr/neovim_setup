@@ -38,6 +38,30 @@ return require("packer").startup(function(use)
 		requires = { 'nvim-tree/nvim-web-devicons', opt = true}
 	}
 
+	-- Command suggestions
+	use {
+		"folke/which-key.nvim",
+		event = 'VimEnter', -- Sets the loading event to 'VimEnter'
+		config = function() -- This is the function that runs, AFTER loading
+		
+		vim.o.timeout = true
+		vim.o.timeoutlen = 300
+
+		require("which-key").setup {
+			-- leave it empty to use the default settings
+		}
+
+		-- Document existing key chains
+		require('which-key').register {
+			  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
+			  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
+			  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
+			  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+			  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' }
+			}
+		end
+	}
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	-- Only gets run if packer was not installed when the scripts started
